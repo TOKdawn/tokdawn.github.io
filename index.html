@@ -154,6 +154,159 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C语言除法实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2017/06/10/C语言除法实现/">C语言除法实现</a>
+    </h1>
+  
+
+        
+        <a href="/Blog/2017/06/10/C语言除法实现/" class="archive-article-date">
+  	<time datetime="2017-06-10T02:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一点多以前自己写的垃圾玩意,主要是过来测试下图片上传问题Orz</p>
+<pre><code>#include &lt;stdio.h&gt;
+//#define TURE 1
+int divisionII(int, int);
+double divisionID(int, double);
+double divisionDI(double, int);
+double divisionDD(double, double);
+double square(int x) { //处理小数位,
+  double y = 0.1;
+  for (int i = 1; i &lt; x; i++) {
+    y *= 0.1;
+  }
+  return y;
+}
+int main(int argc, char const *argv[]) {
+  double a;
+  double b, c;
+  scanf(&quot;%lf%lf&quot;, &amp;a, &amp;b);
+  c = divisionDD(a, b);
+  printf(&quot; C=%lf,my=%lf&quot;, a / b, c);
+  return 0;
+}
+int divisionII(int x, int y) {
+  int sum;
+  while ((x -= y) &gt;= 0) { //基本思想就是看x中有多少个y
+    sum++;
+  }
+  return sum;
+}
+double divisionID(int a, double y) {
+  double x = (double)a; //都强转为浮点数防止精度丢失
+  double intnum = 0, floatnum = 1, sum = 0;
+  if (x &gt; y) {
+    intnum = 1;
+    while ((x -= y) &gt;= y)
+      intnum++;
+  }                //处理整数部分
+  while (x != 0) { //整除是一种退出
+    floatnum = 1;
+    for (; x &lt; y; sum++) { // sum用于记录当前在小数点后多少位
+      x = x * 10;          //应对需要多次进位的情况
+    }
+    while ((x -= y) &gt;= y) {
+      floatnum++; //借位后道理跟整数一样
+    }
+    intnum = intnum + square(sum) * floatnum;
+    if (x == 0 || sum == 8) //退出条件,精度达到8或者整除;
+      break;
+  }
+  return intnum;
+}
+double divisionDI(double x, int a) {
+  double y = (double)a;
+  double intnum = 0, floatnum = 1, sum = 0;
+  if (x &gt; y) {
+    intnum = 1;
+    while ((x -= y) &gt;= y)
+      intnum++;
+  }
+  while (x != 0) {
+    floatnum = 1;
+    for (; x &lt; y; sum++) {
+      x = x * 10;
+    }
+    while ((x -= y) &gt;= y) {
+      floatnum++;
+    }
+    intnum = intnum + square(sum) * floatnum;
+    if (x == 0 || sum == 8)
+      break;
+  }
+  return intnum;
+}
+double divisionDD(double x, double y) {
+  double intnum = 0, floatnum = 1, sum = 0;
+  if (x &gt; y) {
+    intnum = 1;
+    while ((x -= y) &gt;= y)
+      intnum++;
+  }
+  while (x != 0) {
+    floatnum = 1;
+    for (; x &lt; y; sum++) {
+      x = x * 10;
+    }
+    while ((x -= y) &gt;= y) {
+      floatnum++;
+    }
+    intnum = intnum + square(sum) * floatnum;
+    if (x == 0 || sum == 8)
+      break;
+  }
+  return intnum;
+}
+</code></pre><p><img src="https://tokdawn.github.io/Blog/img/texy.png" alt="texy.png"> </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/2017/06/10/C语言除法实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-一切的开始" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -306,6 +459,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
