@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io/Blog">
-  <title>Tag: C/C++ | 境界的彼方</title>
+  <title>坑若干 | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dawninshadow的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="境界的彼方">
-<meta property="og:url" content="https://tokdawn.github.io/Blog/tags/C-C/index.html">
+  <meta name="description" content="弱类型与函数作用域背后隐藏的究竟是什么?ssettimeout作用的函数为何不能传参? js修改的CSS是不是拥有最高优先级? browser端js跟node.js又有何差异? 且看&amp;lt;今日说JS&amp;gt;">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="坑若干">
+<meta property="og:url" content="https://tokdawn.github.io/Blog/2017/06/14/坑若干/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="Dawninshadow的个人博客">
+<meta property="og:description" content="弱类型与函数作用域背后隐藏的究竟是什么?ssettimeout作用的函数为何不能传参? js修改的CSS是不是拥有最高优先级? browser端js跟node.js又有何差异? 且看&amp;lt;今日说JS&amp;gt;">
+<meta property="og:image" content="https://tokdawn.github.io/Blog/img/170614/p1.png">
+<meta property="og:image" content="https://tokdawn.github.io/Blog/img/170614/p2.png">
+<meta property="og:updated_time" content="2017-06-14T09:23:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="境界的彼方">
-<meta name="twitter:description" content="Dawninshadow的个人博客">
+<meta name="twitter:title" content="坑若干">
+<meta name="twitter:description" content="弱类型与函数作用域背后隐藏的究竟是什么?ssettimeout作用的函数为何不能传参? js修改的CSS是不是拥有最高优先级? browser端js跟node.js又有何差异? 且看&amp;lt;今日说JS&amp;gt;">
+<meta name="twitter:image" content="https://tokdawn.github.io/Blog/img/170614/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -152,60 +157,266 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-坑若干" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/06/10/C语言除法实现/" class="archive-article-date">
-  	<time datetime="2017-06-10T02:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/06/10/C语言除法实现/">C语言除法实现</a>
+    <h1 class="article-title" itemprop="name">
+      坑若干
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/Blog/2017/06/14/坑若干/" class="archive-article-date">
+  	<time datetime="2017-06-14T09:18:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>弱类型与函数作用域背后隐藏的究竟是什么?<br>s<br>settimeout作用的函数为何不能传参?</p>
+<p>js修改的CSS是不是拥有最高优先级?</p>
+<p>browser端js跟node.js又有何差异?</p>
+<p>且看&lt;今日说JS&gt;<br><a id="more"></a></p>
+<p>本来今天高高兴兴,想把前些日子在<em>CSS揭秘</em>里看到的打字特效封装下然后…</p>
+<p>先上代码:</p>
+<pre><code>&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+    div{
+        background-color: #1b1b1b;
+        color: #91f72e;
+    }
+    @keyframes typing {/*这部分回头也要集成到js里边去*/
+        from { width: 0 }
+    }
+    @keyframes caret {/*这部分回头也要集成到js里边去,由js统一设置*/
+        50% { border-right-color: transparent; }
+    }
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div id=&quot;text&quot;&gt;
+    &lt;!--只要设置父级div的id,然后里边都用p标签就可以用了,做成的话还是挺酷炫的--&gt;
+    &lt;p&gt;
+        12345678910
+    &lt;/p&gt;
+    &lt;!--p标签里别留空行--&gt;
+    &lt;p&gt;
+        12345
+    &lt;/p&gt;
+    &lt;p&gt;
+        123
+    &lt;/p&gt;
+    &lt;p&gt;
+        12
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    window.onload = dawn_type(&apos;text&apos;,100);
+    function dawn_type(id,rate) {//rate为显示速率10为标准,越大越慢,越小越快
+        var objarr=new Array();//储存数据用
+        var times=0;//设置等待时间
+        //网上找的一个仿c/c++sleep函数,不好用QAQ
+//        function sleep(numberMillis) {
+//            var now = new Date();
+//            var exitTime = now.getTime() + numberMillis;
+//            while (true) {
+//                now = new Date();
+//                if (now.getTime() &gt; exitTime)
+//                    return;
+//            }
+//        }
+            //往全局加css,当然失败了
+        //cssText=&quot;@keyframes typing {from { width: 0 }}@keyframes caret {50% { border-right-color: transparent; }}&quot;
+        var obj = document.getElementById(id);//获取父级div的id
+        obj.style.fontFamily=&quot;Consolas, Monaco, monospace&quot;;
+        var p_num = obj.getElementsByTagName(&quot;p&quot;).length;//获取父元素里p标签个数
+        function begin(i) {//设置css
+            console.log(i);
+            p.style.cssText=objarr[i].css;
+        }
+        for(var i=0;i&lt;p_num;i++){
+            var p=obj.children[i];
+            var text_length=p.innerHTML.length;//获取每个p标签里文本长度,以此设置css
+            objarr[i]=new Object();
+            //设置css
+            objarr[i].css=&quot;width: &quot;+text_length+&quot;ch;white-space: nowrap;overflow: hidden;border-right: .05em solid;animation: typing &quot;+text_length*0.01*rate+&quot;s steps(&quot;+text_length+&quot;),caret 1s steps(1) infinite;&quot;
+//            objarr[i].time=text_length*0.01*rate;
+//            console.log(objarr[i].css);
+//            console.log(objarr[i].time);
+          // p.style.cssText=&quot;width: &quot;+text_length+&quot;ch;white-space: nowrap;overflow: hidden;border-right: .05em solid;animation: typing &quot;+text_length*0.01*rate+&quot;s steps(&quot;+text_length+&quot;),caret 1s steps(1) infinite;&quot;;
+            console.log(times);
+            setTimeout(begin(i),times);//全是bugQAQ
+            times+=text_length*rate*10;
+        }
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p>其实需求就是可以动态的让一系列函数根据一定时间顺序执行,但是问题在于如何让一个函数执行结束后等待一段时间后执行另一个函数.</p>
+<p>尝试了许多方法后,碰到bug千千万.</p>
+<ul>
+<li>css的优先级比js高?</li>
+</ul>
+<p><img src="https://tokdawn.github.io/Blog/img/170614/p1.png" alt="css"></p>
+<p>如图,显示跟设置明明是在同一个函数中,但是运行后css动画是一起动的而显示却是按照时间顺序一个个显示出来,<br>本来应该是对了的样子QAQ</p>
+<ul>
+<li><p>settimeout作用的函数为啥不能穿参</p>
+<pre><code>var time=1000;
+for(var i=0;i&lt;3;i++){
+      setTimeout(a(time), time);
+      time+=2000;
+}
+
+function a(time) {
+      console.log(time);
+}
+</code></pre><p>这样写就是三个时间一起显示出来</p>
+<pre><code>var time=1000;
+for(var i=0;i&lt;3;i++){
+      setTimeout(a, time);
+      time+=2000;
+}
+
+function a() {
+      console.log(&quot;sss&quot;);
+}
+</code></pre><p>这样写三个sss就是一个一个的显示</p>
+</li>
+<li><p>node.js跟browser端js有啥区别?</p>
+<p>  <img src="https://tokdawn.github.io/Blog/img/170614/p2.png" alt="css"></p>
+<p>  上边的第一段代码在浏览器里可以跑但是在node.js就报错</p>
+</li>
+</ul>
+<hr>
+<p>总觉得离真相很近了,还是要好好看看js啊,争取快点把坑填上…</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这怎么好意思呢QvQ<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/Blog/2017/06/14/坑若干/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/Blog/2017/06/10/C语言除法实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C语言除法实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -229,9 +440,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/Blog/",
