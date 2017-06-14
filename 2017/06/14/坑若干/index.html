@@ -17,7 +17,7 @@
 <meta property="og:description" content="弱类型与函数作用域背后隐藏的究竟是什么? settimeout作用的函数为何不能传参? js修改的CSS是不是拥有最高优先级? browser端js跟node.js又有何差异? 且看&amp;lt;今日说JS&amp;gt;">
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/p1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/p2.png">
-<meta property="og:updated_time" content="2017-06-14T10:33:42.000Z">
+<meta property="og:updated_time" content="2017-06-14T10:35:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="坑若干">
 <meta name="twitter:description" content="弱类型与函数作用域背后隐藏的究竟是什么? settimeout作用的函数为何不能传参? js修改的CSS是不是拥有最高优先级? browser端js跟node.js又有何差异? 且看&amp;lt;今日说JS&amp;gt;">
@@ -267,14 +267,14 @@
 <p>如图,显示跟设置明明是在同一个函数中,但是运行后css动画是一起动的而显示却是按照时间顺序一个个显示出来,<br>本来应该是对了的样子QAQ</p>
 <ul>
 <li><p>settimeout作用的函数为啥不能穿参</p>
-<pre><code>var time=1000;
-for(var i=0;i&lt;3;i++){
-      setTimeout(a(time), time);
-      time+=2000;
+<pre><code>var time = 1000;
+for (var i = 0; i &lt; 3; i++) {
+    setTimeout(a(time), time);
+    time += 2000;
 }
 
 function a(time) {
-      console.log(time);
+    console.log(time);
 }
 </code></pre></li>
 </ul>
