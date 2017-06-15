@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png">
-<meta property="og:updated_time" content="2017-06-15T09:23:30.000Z">
+<meta property="og:updated_time" content="2017-06-15T09:30:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS特效文本篇">
 <meta name="twitter:description" content="应该会做成个系列篇,基本上涉及到的特效都出自CSS揭秘一书,这是本十分不错的图书很推荐大家读一下. CSS揭秘提供的Demo展示站:csssecrets 本节的所有案例展示页:CSS特效文字篇">
@@ -208,15 +208,25 @@ text-shadow: 0 1px hsl(0,0%,85%),
 0 5px hsl(0,0%,65%),
 0 5px 10px black;
 font: bold 500%/1 Rockwell, serif;
-</code></pre><p>####核心思想:<br>为了真实,立体文字的质感要通过许多的逐渐变暗的阴影表达,最后还要有一个模糊半径特别大的阴影收尾,写起来有点繁琐,注意每个阴影的偏移量递增,还有亮度递减就好</p>
+</code></pre><p>####核心思想:</p>
+<p>为了真实,立体文字的质感要通过许多的逐渐变暗的阴影表达,最后还要有一个模糊半径特别大的阴影收尾,写起来有点繁琐,注意每个阴影的偏移量递增,还有亮度递减就好</p>
 <blockquote>
 <p> font-family:sans-serif/serif;[无衬线/有衬线字体]</p>
 </blockquote>
 <p>##发光字体</p>
 <p>####效果图:</p>
 <p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png" alt="发光字体"></p>
-<p>####代码:<br>        {<br>            color: #ffc;<br>               transition: 1s;<br>            font: bold 500%/1 Rockwell, serif;<br>            }<br>        :hover{<br>            text-shadow: 0 0 .1em, 0 0 .3em;<br>        }</p>
-<p>#####核心思想:<br>用不带偏移量的跟字体颜色一样的阴影模拟光晕特效,并且让特效缓慢的出现,主要是要用这种荧光色,设置两层阴影应该是为了增加层次感吧.</p>
+<p>####代码:</p>
+<pre><code>{
+color: #ffc;
+transition: 1s;
+font: bold 500 % /1 Rockwell, serif;
+    }
+ :hover{
+   text-shadow: 0 0 .1em, 0 0 .3em;
+     }/
+</code></pre><p>#####核心思想:</p>
+<p>用不带偏移量的跟字体颜色一样的阴影模拟光晕特效,并且让特效缓慢的出现,主要是要用这种荧光色,设置两层阴影应该是为了增加层次感吧.</p>
 <blockquote>
 <p>transition:用于作用的属性,执行时间,速度曲线,延时执行时间;[用于设置hover效果展现过程的属性]</p>
 </blockquote>
@@ -224,7 +234,8 @@ font: bold 500%/1 Rockwell, serif;
 <p>####<a href="http://112.74.194.191/Dawn/201706/20170615.html" target="_blank" rel="external">效果展示页</a></p>
 <p>####代码:</p>
 <ul>
-<li><p>CSS </p>
+<li>CSS </li>
+</ul>
 <pre><code>@keyframes typing {
     from {
         width: 0
@@ -286,9 +297,7 @@ font: bold 500%/1 Rockwell, serif;
     animation-delay: 4.2s;
     color: transparent;
 }
-</code></pre></li>
-</ul>
-<ul>
+</code></pre><ul>
 <li>HTML</li>
 </ul>
 <pre><code>&lt;div id=&quot;type&quot;&gt;
