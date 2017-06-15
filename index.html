@@ -154,6 +154,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-md插入html测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2017/06/15/md插入html测试/">md插入html测试</a>
+    </h1>
+  
+
+        
+        <a href="/Blog/2017/06/15/md插入html测试/" class="archive-article-date">
+  	<time datetime="2017-06-15T06:41:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>测试MD文本中插入网页</p>
+<ul>
+<li>测试CSS<br><html lang="en"><br><head><br>  <meta charset="UTF-8"><br>  <title>按钮</title><br></head><br><style><br>  section:nth-of-type(1){<pre><code>padding:.3em .8em;
+border:1px solid rgba(0,0,0,.1);
+background: #58a linear-gradient(hsla(0,0%,100%,.2),transparent);
+border-radius: .2em;
+box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+color: white;
+text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+width: 2em;
+background-color: #ffaf00;
+</code></pre>  }<br>  section:nth-of-type(2){<pre><code>padding:.3em .8em;
+border:1px solid rgba(0,0,0,.1);
+background: #58a linear-gradient(hsla(0,0%,100%,.2),transparent);
+border-radius: .2em;
+box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+color: white;
+text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+width: 2em;
+background-color: #ff1744;
+</code></pre>  }<br></style><br><body><br><section><br>  正确<br></section><br><br></body></html></li>
+</ul>
+<p><section><br>    错误<br></section><br><br></p>
+<ul>
+<li>测试JavaScript</li>
+</ul>
+<html lang="en"><br><head><br>    <meta charset="UTF-8"><br>    <title>Title</title><br></head><br><style><br><br>   @keyframes typing {<br>        from { width: 0 }<br>    }<br>    @keyframes caret {<br>        50% { border-right-color: transparent; }<br>    }<br>    @keyframes colorchange<br>{<br>0% {color:transparent;}/<em>动画开始样式</em>/<br><br>100% {color:#91f72e;}/<em>动画结束样式</em>/<br>}<br>    #type{<br>        font: bold 100% Consolas, Monaco, monospace;<br>        background-color: black;<br>        color: #91f72e;<br><br>   }<br>   #T_1 {<br>        /<em>width: 8.25em;</em>/<br>        width: 30ch;<br>        white-space: nowrap;<br>        overflow: hidden;<br>        border-right: .05em solid;<br>        animation: typing 3s steps(30),/<em>绑定动画,动画执行时间,</em>/<br>        caret 1s steps(1) infinite;<br>    }<br>    #T_2{<br>        width: 12ch;<br>        white-space: nowrap;<br>        overflow: hidden;<br>        border-right: .05em solid;<br>        animation: typing 1.2s  steps(12),<br>        caret 1s steps(1) infinite,colorchange 0s forwards ;<br>        animation-delay:3s;<br>        color: transparent;<br><br>   }<br>   #T_3{<br>        width: 16ch;<br>        white-space: nowrap;<br>        overflow: hidden;<br>        border-right: .05em solid;<br>        animation: typing 1.6s steps(16),<br>        caret 1s steps(1) infinite,colorchange 0s forwards;<br>        animation-delay:4.2s;<br>        color: transparent;<br>    }<br><br><br></style><br><body><br><div id="type"><br><h1 id="T_1"><br>    Welcome to My personal blog…<br></h1><br>    <h1 id="T_2"><br>        DawninShadow<br>        </h1><br>    <h1 id="T_3"><br>        Have a good time<br>    </h1><br></div><br></body><br></html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Blog/2017/06/15/md插入html测试/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-坑若干" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -432,6 +516,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
