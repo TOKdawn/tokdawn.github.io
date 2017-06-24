@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png">
-<meta property="og:updated_time" content="2017-06-15T09:30:47.000Z">
+<meta property="og:updated_time" content="2017-06-24T02:40:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS特效文本篇">
 <meta name="twitter:description" content="应该会做成个系列篇,基本上涉及到的特效都出自CSS揭秘一书,这是本十分不错的图书很推荐大家读一下. CSS揭秘提供的Demo展示站:csssecrets 本节的所有案例展示页:CSS特效文字篇">
@@ -181,26 +181,19 @@
         <p>应该会做成个系列篇,基本上涉及到的特效都出自<em>CSS揭秘</em>一书,这是本十分不错的图书很推荐大家读一下.</p>
 <p>CSS揭秘提供的Demo展示站:<a href="http://play.csssecrets.io" target="_blank" rel="external">csssecrets</a></p>
 <p>本节的所有案例展示页:<a href="http://112.74.194.191/Dawn/201706/20170615.html" target="_blank" rel="external">CSS特效文字篇</a><br><a id="more"></a></p>
-<p>##凹凸感文本</p>
-<p>####先上效果图:</p>
-<p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png" alt="凹凸文字"></p>
-<p>####代码:</p>
-<pre><code> font: 250%/1.6 Baskerville, Palatino, serif;
+<h2 id="凹凸感文本"><a href="#凹凸感文本" class="headerlink" title="凹凸感文本"></a>凹凸感文本</h2><h4 id="先上效果图"><a href="#先上效果图" class="headerlink" title="先上效果图:"></a>先上效果图:</h4><p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png" alt="凹凸文字"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><pre><code> font: 250%/1.6 Baskerville, Palatino, serif;
 padding: .8em 1em;
 background: hsl(210, 13%, 60%);
 color: hsl(210, 13%, 30%);
 text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
-</code></pre><p>####核心思想:</p>
-<p>背景色跟文字颜色要形成深浅色的对比,并且利用text-shdow打上单侧阴影(背景浅文字深时打下方浅阴影,背景深文字浅时打上方深阴影)</p>
+</code></pre><h4 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想:"></a>核心思想:</h4><p>背景色跟文字颜色要形成深浅色的对比,并且利用text-shdow打上单侧阴影(背景浅文字深时打下方浅阴影,背景深文字浅时打上方深阴影)</p>
 <blockquote>
 <p>hsla(色调[0-360],饱和度[0%-100%],亮度[0%-100%],透明度[0-1]);</p>
 <p>text-shadow:x轴偏移,y轴偏移,模糊半径,阴影颜色;</p>
 </blockquote>
-<p>##立体文字</p>
-<p>####效果图:</p>
-<p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext2.png" alt="立体文字"></p>
-<p>####代码:</p>
-<pre><code>color: white;
+<h2 id="立体文字"><a href="#立体文字" class="headerlink" title="立体文字"></a>立体文字</h2><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h4><p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext2.png" alt="立体文字"></p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码:"></a>代码:</h4><pre><code>color: white;
 text-shadow: 0 1px hsl(0,0%,85%),
 0 2px hsl(0,0%,80%),
 0 3px hsl(0,0%,75%),
@@ -208,16 +201,12 @@ text-shadow: 0 1px hsl(0,0%,85%),
 0 5px hsl(0,0%,65%),
 0 5px 10px black;
 font: bold 500%/1 Rockwell, serif;
-</code></pre><p>####核心思想:</p>
-<p>为了真实,立体文字的质感要通过许多的逐渐变暗的阴影表达,最后还要有一个模糊半径特别大的阴影收尾,写起来有点繁琐,注意每个阴影的偏移量递增,还有亮度递减就好</p>
+</code></pre><h4 id="核心思想-1"><a href="#核心思想-1" class="headerlink" title="核心思想:"></a>核心思想:</h4><p>为了真实,立体文字的质感要通过许多的逐渐变暗的阴影表达,最后还要有一个模糊半径特别大的阴影收尾,写起来有点繁琐,注意每个阴影的偏移量递增,还有亮度递减就好</p>
 <blockquote>
 <p> font-family:sans-serif/serif;[无衬线/有衬线字体]</p>
 </blockquote>
-<p>##发光字体</p>
-<p>####效果图:</p>
-<p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png" alt="发光字体"></p>
-<p>####代码:</p>
-<pre><code>{
+<h2 id="发光字体"><a href="#发光字体" class="headerlink" title="发光字体"></a>发光字体</h2><h4 id="效果图-1"><a href="#效果图-1" class="headerlink" title="效果图:"></a>效果图:</h4><p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png" alt="发光字体"></p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码:"></a>代码:</h4><pre><code>{
 color: #ffc;
 transition: 1s;
 font: bold 500 % /1 Rockwell, serif;
@@ -225,15 +214,11 @@ font: bold 500 % /1 Rockwell, serif;
  :hover{
    text-shadow: 0 0 .1em, 0 0 .3em;
      }/
-</code></pre><p>#####核心思想:</p>
-<p>用不带偏移量的跟字体颜色一样的阴影模拟光晕特效,并且让特效缓慢的出现,主要是要用这种荧光色,设置两层阴影应该是为了增加层次感吧.</p>
+</code></pre><h5 id="核心思想-2"><a href="#核心思想-2" class="headerlink" title="核心思想:"></a>核心思想:</h5><p>用不带偏移量的跟字体颜色一样的阴影模拟光晕特效,并且让特效缓慢的出现,主要是要用这种荧光色,设置两层阴影应该是为了增加层次感吧.</p>
 <blockquote>
 <p>transition:用于作用的属性,执行时间,速度曲线,延时执行时间;[用于设置hover效果展现过程的属性]</p>
 </blockquote>
-<p>##打字特效</p>
-<p>####<a href="http://112.74.194.191/Dawn/201706/20170615.html" target="_blank" rel="external">效果展示页</a></p>
-<p>####代码:</p>
-<ul>
+<h2 id="打字特效"><a href="#打字特效" class="headerlink" title="打字特效"></a>打字特效</h2><h4 id="效果展示页"><a href="#效果展示页" class="headerlink" title="效果展示页"></a><a href="http://112.74.194.191/Dawn/201706/20170615.html" target="_blank" rel="external">效果展示页</a></h4><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码:"></a>代码:</h4><ul>
 <li>CSS </li>
 </ul>
 <pre><code>@keyframes typing {
