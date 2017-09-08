@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io/Blog">
-  <title>Archives | 境界的彼方</title>
+  <title>JavaScript与OOP | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dawninshadow的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="境界的彼方">
-<meta property="og:url" content="https://tokdawn.github.io/Blog/archives/index.html">
+  <meta name="description" content="###关于arguments函数中arguments.callee();用于代替自身函数名,可以用再递归函数防止函数名耦合.arguments.callee.caller;为调用次函数的函数 function show(){     console.log(arguments.callee);     console.log(arguments.callee.caller); } function">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript与OOP">
+<meta property="og:url" content="https://tokdawn.github.io/Blog/2017/08/31/JavaSript与OOP/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="Dawninshadow的个人博客">
+<meta property="og:description" content="###关于arguments函数中arguments.callee();用于代替自身函数名,可以用再递归函数防止函数名耦合.arguments.callee.caller;为调用次函数的函数 function show(){     console.log(arguments.callee);     console.log(arguments.callee.caller); } function">
+<meta property="og:updated_time" content="2017-09-08T15:19:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="境界的彼方">
-<meta name="twitter:description" content="Dawninshadow的个人博客">
+<meta name="twitter:title" content="JavaScript与OOP">
+<meta name="twitter:description" content="###关于arguments函数中arguments.callee();用于代替自身函数名,可以用再递归函数防止函数名耦合.arguments.callee.caller;为调用次函数的函数 function show(){     console.log(arguments.callee);     console.log(arguments.callee.caller); } function">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -170,36 +172,271 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-JavaSript与OOP" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      JavaScript与OOP
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/08/31/JavaSript与OOP/" class="archive-article-date">
+
+        
+        <a href="/Blog/2017/08/31/JavaSript与OOP/" class="archive-article-date">
   	<time datetime="2017-08-31T05:10:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/08/31/JavaSript与OOP/">JavaScript与OOP</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###关于arguments<br>函数中arguments.callee();用于代替自身函数名,可以用再递归函数防止函数名耦合.<br>arguments.callee.caller;为调用次函数的函数</p>
+<pre><code>function show(){
+    console.log(arguments.callee);
+    console.log(arguments.callee.caller);
+}
+function call(){
+    show();
+}
+call();
 
-        <div class="article-info info-on-right">
-          
+/***输出结果***/
+[Function: show]
+[Function: call]
+</code></pre><p>###关于call<br>call可以替换上下文关系</p>
+<pre><code>function cat() {}
+cat.prototype = {
+    food: &quot;fish&quot;,
+    say: function() {
+        console.log(&quot;I love &quot; + this.food);
+    }
+}
+var Cat = new cat;
+Cat.say();
+
+Dog = { food: &quot;bone&quot; }
+Cat.say.call(Dog); //say视为Dog调用.
+/*****输出结果*****/
+I love fish
+I love bone
+</code></pre><p>###主流类实现方法</p>
+<p>采用构造函数跟原型结合的方式创建,构造函数定义私有属性及方法,原型创建公共属性方法.通过cat类实例了两个对象(tom&amp;jay),他们有公共的属性(like:fish)和方法(sleep),并且有自己私有的名字颜色和自我介绍</p>
+<pre><code>function cat(color, name) {
+    this.color = color;
+    this.name = name;
+    this.say = function() {
+        console.log(&quot;I am &quot; + name + &quot;. I am &quot; + color + &quot;cat&quot;);
+    }
+}
+cat.prototype = {
+    leg: &quot;four&quot;,
+    like: &quot;fish&quot;,
+    sleep: function() {
+        console.log(&quot;I,sleep&quot;);
+    }
+}
+var tom = new cat(&quot;black&quot;, &quot;tom&quot;);
+var jay = new cat(&quot;yellow&quot;, &quot;joy&quot;);
+tom.say();
+tom.sleep();
+console.log(&quot;tom like&quot; + tom.like);
+jay.say();
+jay.sleep();
+console.log(&quot;tom like&quot; + jay.like);
+/*****输出结果*****/
+[Running] node &quot;/Users/dawn/Desktop/Untitled-2.js&quot;
+I am tom. I am blackcat
+I,sleep
+tom likefish
+I am joy. I am yellowcat
+I,sleep
+tom likefish
+</code></pre><p>###继承</p>
+<pre><code>function cat (){
+   this.lag=4;
+  //父级 ,创建函数以构造函数的方式
+}
+cat.prototype.showlag = function(){
+    return this.lag;
+    //父级方法
+}
+function blackcat(){
+//子级
+    this.color=&quot;black&quot;;
+}
+blackcat.prototype = new cat();
+//继承
+blackcat.prototype.showcolor=function(){
+    return this.color;
+    //子级方法
+}
+var tom=new blackcat();
+console.log(tom.showcolor());
+console.log(tom.showlag());
+/*******输出******/
+black
+4
+</code></pre><p>原型链式的继承无法满足父级类的数据独立,一个继承的子对象修改了父类中数据会反应在其他子对象实例中,解决方案如下</p>
+<pre><code>function cat() {
+    this.like = [&apos;fish&apos;, &apos;bird&apos;];
+}
+
+function blackcat() {
+    cat.call(this);
+}
+
+function withecat() {
+    cat.call(this);
+}
+var tom = new blackcat();
+tom.like.push(&quot;jay&quot;);
+
+var tom3 = new blackcat();
+tom3.like.push(&quot;jay3&quot;);
+var tom2 = new withecat();
+tom2.like.push(&quot;joy2&quot;);
+
+console.log(tom.like);
+console.log(tom2.like);
+console.log(tom3.like);
+/********实现方式如下*********/
+[ &apos;fish&apos;, &apos;bird&apos;, &apos;jay&apos; ]
+[ &apos;fish&apos;, &apos;bird&apos;, &apos;joy2&apos; ]
+[ &apos;fish&apos;, &apos;bird&apos;, &apos;jay3&apos; ]
+</code></pre><p>升级版组合继承,通过构造函数实现继承父类并且可以传参数.</p>
+<pre><code>function cat(name, age) {
+    this.name=name;
+    this.age=age;
+    this.like = [&apos;fish&apos;, &apos;bird&apos;];
+
+}
+cat.prototype.say = function() {
+    console.log(&quot;i,am &quot; + this.name + &quot; i &quot;+this.age+&quot; years&quot; );
+}
+
+function blackcat(name, color,age) {
+    this.color = color;
+    cat.call(this, name , age);
+}
+blackcat.prototype = new cat();
+blackcat.prototype.constructor = cat();
+blackcat.prototype.saycolor = function() {
+    console.log(this.color);
+}
+var tom = new blackcat(&quot;tom&quot;, &quot;black&quot;,2);
+tom.like.push(&quot;jay&quot;);
+console.log(tom.like);
+tom.saycolor();
+tom.say();
+   /**********输出结果************/  
+[ &apos;fish&apos;, &apos;bird&apos;, &apos;jay&apos; ]
+black
+i,am tom i 2 years
+</code></pre><p>  ###原型式继承</p>
+<pre><code>      function zpy(o) {
+        function F() {};
+        F.prototype = o;
+        return new F();
+    }
+
+var cat = {
+    color: &quot;white&quot;,
+    like: [&quot;fish&quot;, &quot;bird&quot;]
+};
+var tom = zpy(cat);
+tom.color = &quot;black&quot;;
+tom.like.push(&quot;jay&quot;);
+var tom2 = zpy(cat);
+
+//tom2.like.push(&quot;tom&quot;);
+console.log(tom.like + &quot; &quot; + tom.color);
+console.log(tom2.like + &quot; &quot; + tom2.color);
+/**********结果***********/
+fish,bird,jay black
+fish,bird,jay white
+</code></pre><p>本质上只是父级元素浅复制出一些子对象,每个子对象都贡献父元素中数据,除了重写的属性独立外其他都共享.简化版:</p>
+<pre><code>var cat = {
+    color: &quot;white&quot;,
+    like: [&quot;fish&quot;, &quot;bird&quot;]
+};
+var tom = Object.create(cat);
+tom.color = &quot;black&quot;;
+tom.like.push(&quot;jay&quot;);
+var tom2 = Object.create(cat);
+
+//tom2.like.push(&quot;tom&quot;);
+console.log(tom.like + &quot; &quot; + tom.color);
+console.log(tom2.like + &quot; &quot; + tom2.color);
+/**********结果***********/
+fish,bird,jay black
+fish,bird,jay white
+</code></pre><p>###寄生继承<br>    function inheritance(cat) {<br>        var clone = Object.create(cat);<br>        clone.say = function() {<br>            console.log(“QAQ”);<br>            // console.log(this.color); 虽然这样确实可以输出,但是就太耦合失去函数包装的意义了<br>        }<br>        return clone;<br>    }<br>    var cat = {<br>        color: “black”,<br>        like: [“fish”, “bird”]<br>    };</p>
+<pre><code>var tom = Object.create(cat);
+console.log(tom.like);
+tom = inheritance(tom);
+tom.say();
+
+/*******运行结果*********/
+[ &apos;fish&apos;, &apos;bird&apos; ]
+QAQ
+</code></pre><p>其实只是函数只是实现了对对象的功能增强.</p>
+<p>###组合寄生继承<br>    function inherit(son, father) {<br>        var prototype = Object.create(father.prototype); //创建父对象的原型<br>        prototype.constructor = son; //次原型指向子对象<br>        son.prototype = prototype; //子对象的构造函数改为刚刚创建的函数<br>    }</p>
+<pre><code>function cat(name) {
+    this.name = name;
+    this.like = [&apos;fish&apos;, &apos;bird&apos;];
+}
+cat.prototype.sayname = function() {
+    console.log(this.name);
+}
+
+function blackcat(name, age) {
+    cat.call(this, name);
+    this.age = age;
+}
+inherit(blackcat, cat);
+blackcat.prototype.sayage = function() {
+    console.log(this.age);
+}
+var tom = new blackcat(&quot;tom&quot;, 2);
+tom.sayage();
+tom.sayname();
+console.log(tom.like);
+/*******输出结果**********/
+2
+tom
+[ &apos;fish&apos;, &apos;bird&apos; ]
+</code></pre><p>此方案可以解决组合继承方式重复调用构造函数的bug(父级对象调用一次创建变量,子级对象又调用一次覆盖父级对象变量)</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这怎么好意思呢QvQ<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,209 +448,89 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/Blog/2017/08/31/JavaSript与OOP/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/06/15/CSS特效文本篇/" class="archive-article-date">
-  	<time datetime="2017-06-15T07:42:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/06/15/CSS特效文本篇/">CSS特效文本篇</a>
-    </h1>
+  
+    <a href="/Blog/2017/06/15/CSS特效文本篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS特效文本篇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/06/15/md插入html测试/" class="archive-article-date">
-  	<time datetime="2017-06-15T06:41:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/06/15/md插入html测试/">md插入html测试</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/06/14/坑若干/" class="archive-article-date">
-  	<time datetime="2017-06-14T09:18:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/06/14/坑若干/">坑若干</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/06/10/C语言除法实现/" class="archive-article-date">
-  	<time datetime="2017-06-10T02:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/06/10/C语言除法实现/">C语言除法实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Blog/2017/06/07/一切的开始/" class="archive-article-date">
-  	<time datetime="2017-06-07T06:12:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Blog/2017/06/07/一切的开始/">一切的开始</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -437,8 +554,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
