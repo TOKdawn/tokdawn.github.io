@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
-  <title>BOM | 境界的彼方</title>
+  <title>Electron学习 | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dawninshadow的个人博客">
+  <meta name="description" content="安装与起步sudo npm install electron --save-dev --save-exact">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BOM">
-<meta property="og:url" content="https://tokdawn.github.io/2017/09/11/BOM/index.html">
+<meta property="og:title" content="Electron学习">
+<meta property="og:url" content="https://tokdawn.github.io/2017/09/11/Electron学习/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="Dawninshadow的个人博客">
-<meta property="og:updated_time" content="2017-09-10T23:55:16.000Z">
+<meta property="og:description" content="安装与起步sudo npm install electron --save-dev --save-exact">
+<meta property="og:updated_time" content="2017-09-13T00:54:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BOM">
-<meta name="twitter:description" content="Dawninshadow的个人博客">
+<meta name="twitter:title" content="Electron学习">
+<meta name="twitter:description" content="安装与起步sudo npm install electron --save-dev --save-exact">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -43,63 +43,94 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background:  radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%), radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%) 50px 50px; background-color:#f7aeb9; background-size:100px 100px;"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/Blog/" class="profilepic">
+    <div class="overlay" style="background:  radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%), radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%) 50px 50px; background-color:#f7aeb9; background-size:100px 100px;"></div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="#" class="profilepic">
 			<img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/header.jpeg" class="js-avatar">
 		</a>
-		<hgroup>
-		  <h1 class="header-author"><a href="/Blog/">Dawn inShadow</a></h1>
-		</hgroup>
-		
-		<p class="header-subtitle">传说这里是由执念构成的</p>
-		
+            <hgroup>
+                <h1 class="header-author">
+                    <a href="#">
+                        Dawn inShadow
+                    </a>
+                </h1>
+            </hgroup>
+            
+                <p class="header-subtitle">
+                    传说这里是由执念构成的
+                </p>
+                
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/杂谈/">杂谈</a></li>
-	        
-				<li><a href="/tags/日记/">日记</a></li>
-	        
-				<li><a href="/tags/HTML/">HTML</a></li>
-	        
-				<li><a href="/tags/CSS/">CSS</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-    		
-    			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">ヽ(•̀ω•́ )ゝ </a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/TOKdawn" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="http://weibo.com/p/1005053204885811/" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Dawn_inShadow/" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-			</div>
-		</nav>
-	</header>
-</div>
-
+                    <nav class="header-menu">
+                        <ul>
+                            
+                                <li>
+                                    <a href="/">
+                                        主页
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/杂谈/">
+                                        杂谈
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/日记/">
+                                        日记
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/HTML/">
+                                        HTML
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/CSS/">
+                                        CSS
+                                    </a>
+                                </li>
+                                
+                        </ul>
+                    </nav>
+                    <nav class="header-smart-menu">
+                        
+                            
+                                <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">
+                                    所有文章
+                                </a>
+                                
+                                    
+                            
+                                <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">
+                                    ヽ(•̀ω•́ )ゝ 
+                                </a>
+                                
+                                    
+                            
+                                <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">
+                                    关于我
+                                </a>
+                                
+                                    
+                    </nav>
+                    <nav class="header-nav">
+                        <div class="social">
+                            
+                                <a class="github" target="_blank" href="https://github.com/TOKdawn" title="github"><i class="icon-github"></i></a>
+                                
+                                <a class="weibo" target="_blank" href="http://weibo.com/p/1005053204885811/" title="weibo"><i class="icon-weibo"></i></a>
+                                
+                                <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Dawn_inShadow/" title="zhihu"><i class="icon-zhihu"></i></a>
+                                
+                        </div>
+                    </nav>
+        </header>
+    </div>
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -172,19 +203,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-BOM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Electron学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      BOM
+      Electron学习
     </h1>
   
 
         
-        <a href="/2017/09/11/BOM/" class="archive-article-date">
+        <a href="/2017/09/11/Electron学习/" class="archive-article-date">
   	<time datetime="2017-09-10T23:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
 </a>
         
@@ -192,7 +223,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="安装与起步"><a href="#安装与起步" class="headerlink" title="安装与起步"></a>安装与起步</h3><pre><code>sudo npm install electron --save-dev --save-exact
+</code></pre>
       
 
       
@@ -282,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/09/11/BOM/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/09/11/Electron学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,6 +327,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/09/13/ES6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ES6
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/10/闭包/" id="article-nav-older" class="article-nav-link-wrap">
@@ -419,11 +460,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://tokdawn.github.io/2017/08/31/JavaSript与OOP/index.html">
 <meta property="og:site_name" content="境界的彼方">
 <meta property="og:description" content="随便记点笔记,因为也是刚开始系统学习JavaScript,所以难免有理解错的地方,且看且过吧Orz">
-<meta property="og:updated_time" content="2017-09-08T15:23:39.000Z">
+<meta property="og:updated_time" content="2017-09-12T00:51:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript与OOP">
 <meta name="twitter:description" content="随便记点笔记,因为也是刚开始系统学习JavaScript,所以难免有理解错的地方,且看且过吧Orz">
@@ -43,63 +43,94 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background:  radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%), radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%) 50px 50px; background-color:#f7aeb9; background-size:100px 100px;"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/Blog/" class="profilepic">
+    <div class="overlay" style="background:  radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%), radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%) 50px 50px; background-color:#f7aeb9; background-size:100px 100px;"></div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="#" class="profilepic">
 			<img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/header.jpeg" class="js-avatar">
 		</a>
-		<hgroup>
-		  <h1 class="header-author"><a href="/Blog/">Dawn inShadow</a></h1>
-		</hgroup>
-		
-		<p class="header-subtitle">传说这里是由执念构成的</p>
-		
+            <hgroup>
+                <h1 class="header-author">
+                    <a href="#">
+                        Dawn inShadow
+                    </a>
+                </h1>
+            </hgroup>
+            
+                <p class="header-subtitle">
+                    传说这里是由执念构成的
+                </p>
+                
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/杂谈/">杂谈</a></li>
-	        
-				<li><a href="/tags/日记/">日记</a></li>
-	        
-				<li><a href="/tags/HTML/">HTML</a></li>
-	        
-				<li><a href="/tags/CSS/">CSS</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-    		
-    			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">ヽ(•̀ω•́ )ゝ </a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/TOKdawn" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="http://weibo.com/p/1005053204885811/" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Dawn_inShadow/" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-			</div>
-		</nav>
-	</header>
-</div>
-
+                    <nav class="header-menu">
+                        <ul>
+                            
+                                <li>
+                                    <a href="/">
+                                        主页
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/杂谈/">
+                                        杂谈
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/日记/">
+                                        日记
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/HTML/">
+                                        HTML
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/tags/CSS/">
+                                        CSS
+                                    </a>
+                                </li>
+                                
+                        </ul>
+                    </nav>
+                    <nav class="header-smart-menu">
+                        
+                            
+                                <a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">
+                                    所有文章
+                                </a>
+                                
+                                    
+                            
+                                <a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">
+                                    ヽ(•̀ω•́ )ゝ 
+                                </a>
+                                
+                                    
+                            
+                                <a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">
+                                    关于我
+                                </a>
+                                
+                                    
+                    </nav>
+                    <nav class="header-nav">
+                        <div class="social">
+                            
+                                <a class="github" target="_blank" href="https://github.com/TOKdawn" title="github"><i class="icon-github"></i></a>
+                                
+                                <a class="weibo" target="_blank" href="http://weibo.com/p/1005053204885811/" title="weibo"><i class="icon-weibo"></i></a>
+                                
+                                <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Dawn_inShadow/" title="zhihu"><i class="icon-zhihu"></i></a>
+                                
+                        </div>
+                    </nav>
+        </header>
+    </div>
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -194,7 +225,7 @@
       
         <p> 随便记点笔记,因为也是刚开始系统学习JavaScript,所以难免有理解错的地方,且看且过吧Orz</p>
  <a id="more"></a>
-<p>###关于arguments<br>函数中arguments.callee();用于代替自身函数名,可以用再递归函数防止函数名耦合.<br>arguments.callee.caller;为调用次函数的函数</p>
+<h3 id="关于arguments"><a href="#关于arguments" class="headerlink" title="关于arguments"></a>关于arguments</h3><p>函数中arguments.callee();用于代替自身函数名,可以用再递归函数防止函数名耦合.<br>arguments.callee.caller;为调用次函数的函数</p>
 <pre><code>function show(){
     console.log(arguments.callee);
     console.log(arguments.callee.caller);
@@ -207,7 +238,7 @@ call();
 /***输出结果***/
 [Function: show]
 [Function: call]
-</code></pre><p>###关于call<br>call可以替换上下文关系</p>
+</code></pre><h3 id="关于call"><a href="#关于call" class="headerlink" title="关于call"></a>关于call</h3><p>call可以替换上下文关系</p>
 <pre><code>function cat() {}
 cat.prototype = {
     food: &quot;fish&quot;,
@@ -223,8 +254,7 @@ Cat.say.call(Dog); //say视为Dog调用.
 /*****输出结果*****/
 I love fish
 I love bone
-</code></pre><p>###主流类实现方法</p>
-<p>采用构造函数跟原型结合的方式创建,构造函数定义私有属性及方法,原型创建公共属性方法.通过cat类实例了两个对象(tom&amp;jay),他们有公共的属性(like:fish)和方法(sleep),并且有自己私有的名字颜色和自我介绍</p>
+</code></pre><h3 id="主流类实现方法"><a href="#主流类实现方法" class="headerlink" title="主流类实现方法"></a>主流类实现方法</h3><p>采用构造函数跟原型结合的方式创建,构造函数定义私有属性及方法,原型创建公共属性方法.通过cat类实例了两个对象(tom&amp;jay),他们有公共的属性(like:fish)和方法(sleep),并且有自己私有的名字颜色和自我介绍</p>
 <pre><code>function cat(color, name) {
     this.color = color;
     this.name = name;
@@ -255,8 +285,7 @@ tom likefish
 I am joy. I am yellowcat
 I,sleep
 tom likefish
-</code></pre><p>###继承</p>
-<pre><code>function cat (){
+</code></pre><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><pre><code>function cat (){
    this.lag=4;
   //父级 ,创建函数以构造函数的方式
 }
@@ -374,8 +403,20 @@ console.log(tom2.like + &quot; &quot; + tom2.color);
 /**********结果***********/
 fish,bird,jay black
 fish,bird,jay white
-</code></pre><p>###寄生继承<br>    function inheritance(cat) {<br>        var clone = Object.create(cat);<br>        clone.say = function() {<br>            console.log(“QAQ”);<br>            // console.log(this.color); 虽然这样确实可以输出,但是就太耦合失去函数包装的意义了<br>        }<br>        return clone;<br>    }<br>    var cat = {<br>        color: “black”,<br>        like: [“fish”, “bird”]<br>    };</p>
-<pre><code>var tom = Object.create(cat);
+</code></pre><h3 id="寄生继承"><a href="#寄生继承" class="headerlink" title="寄生继承"></a>寄生继承</h3><pre><code>function inheritance(cat) {
+    var clone = Object.create(cat);
+    clone.say = function() {
+        console.log(&quot;QAQ&quot;);
+        // console.log(this.color); 虽然这样确实可以输出,但是就太耦合失去函数包装的意义了
+    }
+    return clone;
+}
+var cat = {
+    color: &quot;black&quot;,
+    like: [&quot;fish&quot;, &quot;bird&quot;]
+};
+
+var tom = Object.create(cat);
 console.log(tom.like);
 tom = inheritance(tom);
 tom.say();
@@ -384,8 +425,13 @@ tom.say();
 [ &apos;fish&apos;, &apos;bird&apos; ]
 QAQ
 </code></pre><p>其实只是函数只是实现了对对象的功能增强.</p>
-<p>###组合寄生继承<br>    function inherit(son, father) {<br>        var prototype = Object.create(father.prototype); //创建父对象的原型<br>        prototype.constructor = son; //次原型指向子对象<br>        son.prototype = prototype; //子对象的构造函数改为刚刚创建的函数<br>    }</p>
-<pre><code>function cat(name) {
+<h3 id="组合寄生继承"><a href="#组合寄生继承" class="headerlink" title="组合寄生继承"></a>组合寄生继承</h3><pre><code>function inherit(son, father) {
+    var prototype = Object.create(father.prototype); //创建父对象的原型
+    prototype.constructor = son; //次原型指向子对象
+    son.prototype = prototype; //子对象的构造函数改为刚刚创建的函数
+}
+
+function cat(name) {
     this.name = name;
     this.like = [&apos;fish&apos;, &apos;bird&apos;];
 }
@@ -646,11 +692,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
             
             <div class="clearfix"></div>
