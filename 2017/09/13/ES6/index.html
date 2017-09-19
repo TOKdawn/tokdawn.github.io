@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
   <title>ES6 | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先上文档地址:ES6入门BabelES6跟ES5转换">
+  <meta name="description" content="先上文档地址:ES6入门">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6">
 <meta property="og:url" content="https://tokdawn.github.io/2017/09/13/ES6/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="先上文档地址:ES6入门BabelES6跟ES5转换">
-<meta property="og:updated_time" content="2017-09-13T04:39:29.000Z">
+<meta property="og:description" content="先上文档地址:ES6入门">
+<meta property="og:updated_time" content="2017-09-13T08:14:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
-<meta name="twitter:description" content="先上文档地址:ES6入门BabelES6跟ES5转换">
+<meta name="twitter:description" content="先上文档地址:ES6入门">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -46,12 +46,12 @@
     <div class="overlay" style="background:  radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%), radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%), radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%), radial-gradient(circle closest-side at 60% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #f7aeb9 26%, rgba(187,0,51,0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #F03861 45%, rgba(221,51,85,0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #F03861 30%, rgba(221,51,85,0) 31%) 50px 50px; background-color:#f7aeb9; background-size:100px 100px;"></div>
     <div class="intrude-less">
         <header id="header" class="inner">
-            <a href="#" class="profilepic">
+            <a href="" class="profilepic">
 			<img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/header.jpeg" class="js-avatar">
 		</a>
             <hgroup>
                 <h1 class="header-author">
-                    <a href="#">
+                    <a href="">
                         Dawn inShadow
                     </a>
                 </h1>
@@ -78,8 +78,8 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="/tags/日记/">
-                                        日记
+                                    <a href="/tags/JavaScript/">
+                                        JavaScript
                                     </a>
                                 </li>
                                 
@@ -184,7 +184,7 @@
 		        
 					<li style="width: 20%"><a href="/tags/杂谈/">杂谈</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/日记/">日记</a></li>
+					<li style="width: 20%"><a href="/tags/JavaScript/">JavaScript</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/HTML/">HTML</a></li>
 		        
@@ -223,8 +223,84 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="先上文档地址-ES6入门"><a href="#先上文档地址-ES6入门" class="headerlink" title="先上文档地址:ES6入门"></a>先上文档地址:<a href="http://es6.ruanyifeng.com" target="_blank" rel="external">ES6入门</a></h3><h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>ES6跟ES5转换</p>
+        <h3 id="先上文档地址-ES6入门"><a href="#先上文档地址-ES6入门" class="headerlink" title="先上文档地址:ES6入门"></a>先上文档地址:<a href="http://es6.ruanyifeng.com" target="_blank" rel="external">ES6入门</a></h3><a id="more"></a>
+<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>配置Babel,首先安装Babel,再建立项目文件夹,根目录下创建.babelre文件,基础配置:</p>
+<pre><code>{
+    &quot;presets&quot;: [
+        &quot;es2015&quot;,
+        &quot;react&quot;,
+        &quot;stage-2&quot;
+    ],
+    &quot;plugins&quot;: []
+}
+</code></pre><p>再用终端在文件夹下初始化npm,创建package.json:</p>
+<pre><code>npm init
+</code></pre><p>然后运行:</p>
+<pre><code>sudo  npm install babel-preset-env --save-dev
+</code></pre><p>babel配置完成,现在还需要手动转换,自动转换要设置监听</p>
+<p>转换命令:</p>
+<pre><code>babel ./ssa.js --out-dir ./dist
+</code></pre><p>可以写入package.json</p>
+<pre><code>{
+    &quot;name&quot;: &quot;es6_practice&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;description&quot;: &quot;&quot;,
+    &quot;main&quot;: &quot;index.js&quot;,
+    &quot;scripts&quot;: {
+        &quot;build&quot;: &quot;babel ./*.js --out-dir ./dist&quot;
+    },
+    &quot;author&quot;: &quot;dawn&quot;,
+    &quot;license&quot;: &quot;ISC&quot;,
+    &quot;devDependencies&quot;: {
+        &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;
+    }
+}
+</code></pre><p>之后运行即可完成转换</p>
+<pre><code>npm run build
+</code></pre><p>#ES6语法</p>
+<ul>
+<li>let:块级作用域!!!没有变量提升!!!不用多BB跟C语言一毛一样</li>
+<li>const:常量</li>
+</ul>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><pre><code>let [foo = true] = [];
+foo // true
 
+let [x, y = &apos;b&apos;] = [&apos;a&apos;]; // x=&apos;a&apos;, y=&apos;b&apos;
+let [x, y = &apos;b&apos;] = [&apos;a&apos;, undefined]; // x=&apos;a&apos;, y=&apos;b&apos;
+</code></pre><h3 id="变量解构"><a href="#变量解构" class="headerlink" title="变量解构"></a>变量解构</h3><pre><code>function example() {
+  return [1, 2, 3];
+}
+let [a, b, c] = example();
+
+// 返回一个对象
+
+function example() {
+  return {
+    foo: 1,
+    bar: 2
+  };
+}
+let { foo, bar } = example();
+
+
+
+// 参数是一组有次序的值
+function f([x, y, z]) { ... }
+f([1, 2, 3]);
+
+// 参数是一组无次序的值
+function f({x, y, z}) { ... }
+f({z: 3, y: 2, x: 1});
+
+
+
+
+$(&apos;#result&apos;).append(`
+  There are &lt;b&gt;${basket.count}&lt;/b&gt; items
+   in your basket, &lt;em&gt;${basket.onSale}&lt;/em&gt;
+  are on sale!
+`);
+</code></pre>
       
 
       
@@ -327,6 +403,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/09/19/Vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/11/Electron学习/" id="article-nav-older" class="article-nav-link-wrap">
@@ -443,19 +528,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Vue JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>

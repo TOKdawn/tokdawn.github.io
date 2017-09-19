@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
-  <title>CSS特效文本篇 | 境界的彼方</title>
+  <title>Vue | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="应该会做成个系列篇,基本上涉及到的特效都出自CSS揭秘一书,这是本十分不错的图书很推荐大家读一下. CSS揭秘提供的Demo展示站:csssecrets 本节的所有案例展示页:CSS特效文字篇">
-<meta name="keywords" content="CSS">
+  <meta name="description" content="Vue,MVVM,Jason,大前端时代">
+<meta name="keywords" content="Vue JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS特效文本篇">
-<meta property="og:url" content="https://tokdawn.github.io/2017/06/15/CSS特效文本篇/index.html">
+<meta property="og:title" content="Vue">
+<meta property="og:url" content="https://tokdawn.github.io/2017/09/19/Vue/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="应该会做成个系列篇,基本上涉及到的特效都出自CSS揭秘一书,这是本十分不错的图书很推荐大家读一下. CSS揭秘提供的Demo展示站:csssecrets 本节的所有案例展示页:CSS特效文字篇">
-<meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png">
-<meta property="og:updated_time" content="2017-06-24T02:40:53.000Z">
+<meta property="og:description" content="Vue,MVVM,Jason,大前端时代">
+<meta property="og:updated_time" content="2017-09-19T04:16:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS特效文本篇">
-<meta name="twitter:description" content="应该会做成个系列篇,基本上涉及到的特效都出自CSS揭秘一书,这是本十分不错的图书很推荐大家读一下. CSS揭秘提供的Demo展示站:csssecrets 本节的所有案例展示页:CSS特效文字篇">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png">
+<meta name="twitter:title" content="Vue">
+<meta name="twitter:description" content="Vue,MVVM,Jason,大前端时代">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -207,151 +203,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CSS特效文本篇" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vue" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CSS特效文本篇
+      Vue
     </h1>
   
 
         
-        <a href="/2017/06/15/CSS特效文本篇/" class="archive-article-date">
-  	<time datetime="2017-06-15T07:42:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
+        <a href="/2017/09/19/Vue/" class="archive-article-date">
+  	<time datetime="2017-09-19T04:05:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>应该会做成个系列篇,基本上涉及到的特效都出自<em>CSS揭秘</em>一书,这是本十分不错的图书很推荐大家读一下.</p>
-<p>CSS揭秘提供的Demo展示站:<a href="http://play.csssecrets.io" target="_blank" rel="external">csssecrets</a></p>
-<p>本节的所有案例展示页:<a href="http://112.74.194.191/Dawn/201706/20170615.html" target="_blank" rel="external">CSS特效文字篇</a><br><a id="more"></a></p>
-<h2 id="凹凸感文本"><a href="#凹凸感文本" class="headerlink" title="凹凸感文本"></a>凹凸感文本</h2><h4 id="先上效果图"><a href="#先上效果图" class="headerlink" title="先上效果图:"></a>先上效果图:</h4><p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext5.png" alt="凹凸文字"></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><pre><code> font: 250%/1.6 Baskerville, Palatino, serif;
-padding: .8em 1em;
-background: hsl(210, 13%, 60%);
-color: hsl(210, 13%, 30%);
-text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
-</code></pre><h4 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想:"></a>核心思想:</h4><p>背景色跟文字颜色要形成深浅色的对比,并且利用text-shdow打上单侧阴影(背景浅文字深时打下方浅阴影,背景深文字浅时打上方深阴影)</p>
-<blockquote>
-<p>hsla(色调[0-360],饱和度[0%-100%],亮度[0%-100%],透明度[0-1]);</p>
-<p>text-shadow:x轴偏移,y轴偏移,模糊半径,阴影颜色;</p>
-</blockquote>
-<h2 id="立体文字"><a href="#立体文字" class="headerlink" title="立体文字"></a>立体文字</h2><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h4><p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext2.png" alt="立体文字"></p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码:"></a>代码:</h4><pre><code>color: white;
-text-shadow: 0 1px hsl(0,0%,85%),
-0 2px hsl(0,0%,80%),
-0 3px hsl(0,0%,75%),
-0 4px hsl(0,0%,70%),
-0 5px hsl(0,0%,65%),
-0 5px 10px black;
-font: bold 500%/1 Rockwell, serif;
-</code></pre><h4 id="核心思想-1"><a href="#核心思想-1" class="headerlink" title="核心思想:"></a>核心思想:</h4><p>为了真实,立体文字的质感要通过许多的逐渐变暗的阴影表达,最后还要有一个模糊半径特别大的阴影收尾,写起来有点繁琐,注意每个阴影的偏移量递增,还有亮度递减就好</p>
-<blockquote>
-<p> font-family:sans-serif/serif;[无衬线/有衬线字体]</p>
-</blockquote>
-<h2 id="发光字体"><a href="#发光字体" class="headerlink" title="发光字体"></a>发光字体</h2><h4 id="效果图-1"><a href="#效果图-1" class="headerlink" title="效果图:"></a>效果图:</h4><p><img src="https://raw.githubusercontent.com/TOKdawn/My_Blog/master/img/201706/csstext3.png" alt="发光字体"></p>
-<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码:"></a>代码:</h4><pre><code>{
-color: #ffc;
-transition: 1s;
-font: bold 500 % /1 Rockwell, serif;
-    }
- :hover{
-   text-shadow: 0 0 .1em, 0 0 .3em;
-     }/
-</code></pre><h5 id="核心思想-2"><a href="#核心思想-2" class="headerlink" title="核心思想:"></a>核心思想:</h5><p>用不带偏移量的跟字体颜色一样的阴影模拟光晕特效,并且让特效缓慢的出现,主要是要用这种荧光色,设置两层阴影应该是为了增加层次感吧.</p>
-<blockquote>
-<p>transition:用于作用的属性,执行时间,速度曲线,延时执行时间;[用于设置hover效果展现过程的属性]</p>
-</blockquote>
-<h2 id="打字特效"><a href="#打字特效" class="headerlink" title="打字特效"></a>打字特效</h2><h4 id="效果展示页"><a href="#效果展示页" class="headerlink" title="效果展示页"></a><a href="http://112.74.194.191/Dawn/201706/20170615.html" target="_blank" rel="external">效果展示页</a></h4><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码:"></a>代码:</h4><ul>
-<li>CSS </li>
-</ul>
-<pre><code>@keyframes typing {
-    from {
-        width: 0
-    }
-}
-
-@keyframes caret {
-    50% {
-        border-right-color: transparent;/*用右侧border模拟打字时的光标,50%时是透明实现闪烁*/
-    }
-}
-
-@keyframes colorchange {
-    0% {
-        color: transparent;/*这个动画瞬间完成,把字体颜色从透明变成可见*/
-    }/*动画开始样式*/
-
-    100% {
-        color: #91f72e;
-    }/*动画结束样式*/
-}
-
-#type {
-    font: bold 100% Consolas, Monaco, monospace;
-    background-color: black;
-    color: #91f72e;
-}
-
-#T_1 {
-        /*width: 8.25em;*/
-    width: 30ch;/*根据当行字数设置长度*/
-    white-space: nowrap;/*文字不换行*/
-    overflow: hidden;/超长的裁剪掉/
-    border-right: .05em solid;/*光标*/
-    animation: typing 3s steps(30),/*绑定增长动画,执行三秒,为了统一我设置的为一个字0.1秒,分30段执行,这里也就是当行字数*/
-        caret 1s steps(1) infinite;/*绑定光标闪烁动画*/
-}
-
-#T_2 {
-    width: 12ch;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: .05em solid;
-    animation: typing 1.2s  steps(12),
-        caret 1s steps(1) infinite,
-        colorchange 0s forwards;/*改完颜色就停留在最后有颜色的状态*/
-    animation-delay: 3s;/*设置等待时间,第一行结束才开始执行*/
-    color: transparent;
-}
-
-#T_3 {
-    width: 16ch;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: .05em solid;
-    animation: typing 1.6s steps(16),
-        caret 1s steps(1) infinite,
-        colorchange 0s forwards;
-    animation-delay: 4.2s;
-    color: transparent;
-}
-</code></pre><ul>
-<li>HTML</li>
-</ul>
-<pre><code>&lt;div id=&quot;type&quot;&gt;
-&lt;h1 id=&quot;T_1&quot;&gt;
-    Welcome to My personal blog...
-&lt;/h1&gt;
-    &lt;h1 id=&quot;T_2&quot;&gt;
-        DawninShadow
-        &lt;/h1&gt;
-    &lt;h1 id=&quot;T_3&quot;&gt;
-        Have a good time
-    &lt;/h1&gt;
-&lt;/div&gt;
-</code></pre><p>####核心思想:</p>
-<p>首先文字要用等宽字体,按行为单位展示,行长根据ch(一个字符的长度)设定长度.</p>
-<p>核心动画是让当前行的宽度从零在一段时间内(速率)通过一定次数(步停)增长到原始长度.</p>
-<p>比如有个10个字的行,总长就是10ch,每个字也就占1ch的宽度.现在你的动画规定在10秒的时间里通过10次,把这个行由长度0增长到长度10ch,是不是就是一秒增长一次,一次增长1ch,也就是一秒显示出来了一个字,就实现打字的核心效果了,再加上频繁闪烁的光标,打字特效就实现了.</p>
-<p>当要进行多行连续打字的时候,就要为之后的行设置一个n秒(之前行显示消耗的时间)的等待,当然一开始还不能让这些字显示,所以文字颜色设置为透明,再多加个变色(经历0秒颜色从透明变为有色)的动画就好了,别忘了給动画设置上保持结束时的状态.</p>
-<p><strong>挖个坑,回头要把这个打字特效封装到js里边</strong></p>
-
+        <p>Vue,MVVM,Jason,大前端时代<br><a id="more"></a></p>
+<p>Vue最核心的思想,数据跟界面的绑定和动态更新,通过new Vue对象的创建实现Dom节点和JavaScript间的密切绑定.</p>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>狭义上来讲就是实现了跟JavaScript交互的动态Dom节点,两种构建方式:</p>
+<pre><code>/***根据domID设定的组件****/
+new Vue({
+  el: &apos;#some-element&apos;,
+  // 选项
+})
+</code></pre><p>还有:      </p>
+<pre><code> /******直接建立的Dom组件
+ 在HTML里声明my-componet标签使用*******/
+Vue.component(&apos;my-component&apos;, {
+  // 选项
+})
+</code></pre><h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3>
       
 
       
@@ -385,7 +271,7 @@ font: bold 500 % /1 Rockwell, serif;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue JavaScript</a>
         		</li>
       		
 		</ul>
@@ -441,7 +327,7 @@ font: bold 500 % /1 Rockwell, serif;
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/06/15/CSS特效文本篇/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/09/19/Vue/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -455,18 +341,9 @@ font: bold 500 % /1 Rockwell, serif;
   
 <nav id="article-nav">
   
-    <a href="/2017/08/31/JavaSript与OOP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript与OOP
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/15/md插入html测试/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">md插入html测试</div>
+    <a href="/2017/09/13/ES6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6</div>
       <i class="icon-circle-right"></i>
     </a>
   
