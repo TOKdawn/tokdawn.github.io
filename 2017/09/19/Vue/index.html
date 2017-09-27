@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
   <title>Vue | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue,MVVM,Jason,大前端时代">
-<meta name="keywords" content="Vue JavaScript">
+  <meta name="description" content="Vue,MVVM,Json,大前端时代">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue">
 <meta property="og:url" content="https://tokdawn.github.io/2017/09/19/Vue/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="Vue,MVVM,Jason,大前端时代">
-<meta property="og:updated_time" content="2017-09-19T04:16:20.000Z">
+<meta property="og:description" content="Vue,MVVM,Json,大前端时代">
+<meta property="og:updated_time" content="2017-09-27T11:42:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue">
-<meta name="twitter:description" content="Vue,MVVM,Jason,大前端时代">
+<meta name="twitter:description" content="Vue,MVVM,Json,大前端时代">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -223,9 +223,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Vue,MVVM,Jason,大前端时代<br><a id="more"></a></p>
+        <p>Vue,MVVM,Json,大前端时代<br><a id="more"></a></p>
 <p>Vue最核心的思想,数据跟界面的绑定和动态更新,通过new Vue对象的创建实现Dom节点和JavaScript间的密切绑定.</p>
-<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>狭义上来讲就是实现了跟JavaScript交互的动态Dom节点,两种构建方式:</p>
+<h3 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h3><p>创建项目文件夹</p>
+<pre><code>vue init webpack Objname
+
+ Project name //项目名
+? Project description A Vue.js project
+? Author //作者
+? Vue build standalone
+? Install vue-router? //安装
+? Use ESLint to lint your code? Yes
+? Pick an ESLint preset Standard
+? Setup unit tests with Karma + Mocha? No
+? Setup e2e tests with Nightwatch? No
+</code></pre><p>目录结构:</p>
+<pre><code>build//webpack配置相关文件
+config//webpack配置相关文件
+node_modules//node依赖代码库
+src//项目源码
+static//第三方静态资源(.gitkeep文件是为了保证文件夹为空也可以提交到Github上)
+.babelrc//baber转化器配置
+.editorconfig
+.eslintignore
+.eslintrc.js
+.gitignore
+.postcssrc.js
+.index.html
+.package.js
+</code></pre><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>狭义上来讲就是实现了跟JavaScript交互的动态Dom节点,两种构建方式:</p>
 <pre><code>/***根据domID设定的组件****/
 new Vue({
   el: &apos;#some-element&apos;,
@@ -237,7 +263,58 @@ new Vue({
 Vue.component(&apos;my-component&apos;, {
   // 选项
 })
-</code></pre><h3 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h3>
+</code></pre><ul>
+<li>Vue.extend:创建一个组件的”子类”,可用于绑定在其他组件上</li>
+</ul>
+<p>:</p>
+<pre><code>var DID = Vue.extend({
+    template: &apos;&lt;div&gt; 我是一个dom节点&lt;/div&gt;&lt;child&gt;&lt;/child&gt;&apos;,
+    components:{
+        child:DID
+    }
+})
+Vue.component(&apos;zpy&apos;,DID);//为自定义元素绑定
+
+new DID().$mount(&apos;#zpy&apos;)//为组件绑定        
+new Vue({
+    el:&apos;#example&apos;,
+    components: {
+        &apos;zpy&apos;:Parent//为自定义的元素绑定,并且可以嵌套绑定即在DID的tempate中再创建一个自定义元素.
+    }
+})
+</code></pre><h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><pre><code>&lt;body&gt;
+    &lt;div id=&quot;zpy&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;height1&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;width1&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;area&quot;&gt; height = {{height1}},width={{width1}},area={{area}}
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;script&gt;
+    var vm = new Vue({
+        el: &apos;#zpy&apos;,
+        data: {
+            height1: &apos;10&apos;,
+            width1: &apos;9&apos;
+
+        },
+        computed: {
+            area: {
+                get: function() {
+                    console.log(&quot;get!!!   &quot;);
+                    return this.height1 * this.width1;
+                },
+                set: function(newVal) {
+                    console.log(&quot;set!!!     &quot;);
+                    var elem = newVal.split(&apos;&apos;);
+                    this.height1 = elem[0];
+                    this.width1 = elem[1];
+                }
+            }
+        }
+    })
+&lt;/script&gt;
+</code></pre><p>在Vue对象里设置computed,再为要设置的变量配置get方法和set函数</p>
+
       
 
       
@@ -271,7 +348,7 @@ Vue.component(&apos;my-component&apos;, {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -452,7 +529,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,19 +537,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Vue JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
             
             <div class="clearfix"></div>
