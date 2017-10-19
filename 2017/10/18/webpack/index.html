@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
-  <title>Electron学习 | 境界的彼方</title>
+  <title>webpack | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建跨平台桌面应用仅仅使用JavaScript,HTML以及CSS">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="Webpack是前端工程化的关键,不可不学啊.">
+<meta name="keywords" content="Webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Electron学习">
-<meta property="og:url" content="https://tokdawn.github.io/2017/09/11/Electron学习/index.html">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="https://tokdawn.github.io/2017/10/18/webpack/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="搭建跨平台桌面应用仅仅使用JavaScript,HTML以及CSS">
-<meta property="og:updated_time" content="2017-09-13T06:49:04.000Z">
+<meta property="og:description" content="Webpack是前端工程化的关键,不可不学啊.">
+<meta property="og:updated_time" content="2017-10-18T03:37:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Electron学习">
-<meta name="twitter:description" content="搭建跨平台桌面应用仅仅使用JavaScript,HTML以及CSS">
+<meta name="twitter:title" content="webpack">
+<meta name="twitter:description" content="Webpack是前端工程化的关键,不可不学啊.">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -203,28 +203,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Electron学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-webpack" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Electron学习
+      webpack
     </h1>
   
 
         
-        <a href="/2017/09/11/Electron学习/" class="archive-article-date">
-  	<time datetime="2017-09-10T23:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
+        <a href="/2017/10/18/webpack/" class="archive-article-date">
+  	<time datetime="2017-10-18T03:27:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>搭建跨平台桌面应用<br>仅仅使用JavaScript,HTML以及CSS</strong><br><a id="more"></a></p>
-<h3 id="安装与起步"><a href="#安装与起步" class="headerlink" title="安装与起步"></a>安装与起步</h3><pre><code>sudo npm install electron --save-dev --save-exact
+        <p>Webpack是前端工程化的关键,不可不学啊.<br><a id="more"></a></p>
+<h2 id="webpack配置文件"><a href="#webpack配置文件" class="headerlink" title="webpack配置文件"></a>webpack配置文件</h2><pre><code>// bulid/webpack.base.conf.js
+var path = require(&apos;path&apos;)
+var utils = require(&apos;./utils&apos;)
+var config = require(&apos;../config&apos;)
+var vueLoaderConfig = require(&apos;./vue-loader.conf&apos;)
+var webpack = require(&quot;webpack&quot;)
+
+function resolve(dir) {
+    return path.join(__dirname, &apos;..&apos;, dir)
+}
+module.exports = {
+    entry: {
+        app: &apos;./src/main.js&apos; // 唯一入口文件
+    },
+    output: {
+        path: config.build.assetsRoot,
+        filename: &apos;[name].js&apos;,
+        publicPath: process.env.NODE_ENV === &apos;production&apos; ?
+            config.build.assetsPublicPath : config.dev.assetsPublicPath
+    },
+    resolve: {
+        extensions: [&apos;.js&apos;, &apos;.vue&apos;, &apos;.json&apos;, &apos;.css&apos;, &apos;styl&apos;],
+        alias: {
+            &apos;vue$&apos;: &apos;vue/dist/vue.esm.js&apos;,
+            &apos;@&apos;: resolve(&apos;src&apos;),
+            &apos;components&apos;: path.resolve(__dirname, &apos;../src/components&apos;),
+            &apos;stylus&apos;: path.resolve(__dirname, &apos;../src/common/stylus&apos;),
+            &apos;js&apos;: path.resolve(__dirname, &apos;../src/common/js&apos;),
+            &apos;assets&apos;: path.resolve(__dirname, &apos;../src/assets&apos;),
+        }
+    },
+    module: {
+        rules: [{
+                test: /\.(js|vue)$/,
+                loader: &apos;eslint-loader&apos;,
+                enforce: &apos;pre&apos;,
+                include: [resolve(&apos;src&apos;), resolve(&apos;test&apos;)],
+                options: {
+                    formatter: require(&apos;eslint-friendly-formatter&apos;)
+                }
+            },
+            {
+                test: /\.vue$/,
+                loader: &apos;vue-loader&apos;,
+                options: vueLoaderConfig
+            },
+            {
+                test: /\.js$/,
+                loader: &apos;babel-loader&apos;,
+                include: [resolve(&apos;src&apos;), resolve(&apos;test&apos;)]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: &apos;url-loader&apos;,
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath(&apos;img/[name].[hash:7].[ext]&apos;)
+                }
+            },
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                loader: &apos;url-loader&apos;,
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath(&apos;media/[name].[hash:7].[ext]&apos;)
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: &apos;url-loader&apos;,
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath(&apos;fonts/[name].[hash:7].[ext]&apos;)
+                }
+            },
+
+        ]
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin(&apos;common.js&apos;),
+        new webpack.ProvidePlugin({
+            jQuery: &quot;jquery&quot;,
+            $: &quot;jquery&quot;
+        })
+    ]
+}
 </code></pre>
       
 
@@ -259,7 +344,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Webpack</a>
         		</li>
       		
 		</ul>
@@ -315,7 +400,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/09/11/Electron学习/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/10/18/webpack/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -329,18 +414,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/19/Vue/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/19/ES6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Vue
+          ES6
         
       </div>
     </a>
   
   
-    <a href="/2017/09/10/闭包/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">闭包</div>
+    <a href="/2017/09/29/JE建站记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JE建站记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
