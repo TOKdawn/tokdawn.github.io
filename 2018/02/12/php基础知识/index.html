@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
-  <title>Archives: 2017 | 境界的彼方</title>
+  <title>php基础知识 | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dawninshadow的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="境界的彼方">
-<meta property="og:url" content="https://tokdawn.github.io/archives/2017/page/2/index.html">
+  <meta name="description" content="php入门开始">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php基础知识">
+<meta property="og:url" content="https://tokdawn.github.io/2018/02/12/php基础知识/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="Dawninshadow的个人博客">
+<meta property="og:description" content="php入门开始">
+<meta property="og:updated_time" content="2018-02-12T14:13:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="境界的彼方">
-<meta name="twitter:description" content="Dawninshadow的个人博客">
+<meta name="twitter:title" content="php基础知识">
+<meta name="twitter:description" content="php入门开始">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -201,101 +203,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php基础知识" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/10/C语言除法实现/" class="archive-article-date">
-  	<time datetime="2017-06-10T02:19:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/10/C语言除法实现/">C语言除法实现</a>
+    <h1 class="article-title" itemprop="name">
+      php基础知识
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/12/php基础知识/" class="archive-article-date">
+  	<time datetime="2018-02-12T04:20:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> php入门开始<br> <a id="more"></a><br> 基础开发环境 XAMPP(PHP开发环境)+PHPStorm(IDE)</p>
+<p> <strong>开发文件目录:<br> 在XAMPP程序中的Volumes选项卡内设置 /opt/lampp为Mount<br> Finedr 内会出现共享文件夹,次文件夹内lampp下的htdocs为项目默认文件夹</strong><br> usr/local/php5-7.0.27-20180201-135220/bin</p>
+<h2 id="Composer–PHP库管理器"><a href="#Composer–PHP库管理器" class="headerlink" title="Composer–PHP库管理器"></a>Composer–PHP库管理器</h2><h3 id="Composer安装"><a href="#Composer安装" class="headerlink" title="Composer安装:"></a>Composer安装:</h3><pre><code>curl -sS https://getcomposer.org/installer | php
+</code></pre><h3 id="Laravel安装"><a href="#Laravel安装" class="headerlink" title="Laravel安装:"></a>Laravel安装:</h3><pre><code>composer create-project --prefer-dist laravel/laravel blog
+</code></pre><h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目:"></a>启动项目:</h3><pre><code>php -S localhost:81 -t ./blog/public/
+</code></pre><h2 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h2><p>####routes—路由文件夹<br>    Route::get(‘/‘,function() {});<br>    Route::post(‘/‘,function() {});<br>    Route::any(‘/‘,WelcomeController@index); //Controller文件夹下文件的index方法</p>
+<h3 id="命令创建controller"><a href="#命令创建controller" class="headerlink" title="命令创建controller"></a>命令创建controller</h3><pre><code>php artisan make:controller textController
+</code></pre><h3 id="全部路由表"><a href="#全部路由表" class="headerlink" title="全部路由表"></a>全部路由表</h3><pre><code>php artisan route:list
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这怎么好意思呢QvQ<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2018/02/12/php基础知识/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/07/一切的开始/" class="archive-article-date">
-  	<time datetime="2017-06-07T06:12:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/07/一切的开始/">一切的开始</a>
-    </h1>
+  
+    <a href="/2018/01/24/NUXT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NUXT</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -320,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

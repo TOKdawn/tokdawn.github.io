@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://tokdawn.github.io/2017/09/29/JE建站记录/index.html">
 <meta property="og:site_name" content="境界的彼方">
 <meta property="og:description" content="JE神社的搭建过程中遇到的,学到的一些东西,都很琐碎,但是毕竟是自己的第一个整站项目,所以还是做些记录吧">
-<meta property="og:updated_time" content="2017-10-11T00:18:53.000Z">
+<meta property="og:updated_time" content="2017-10-25T08:26:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JE建站记录">
 <meta name="twitter:description" content="JE神社的搭建过程中遇到的,学到的一些东西,都很琐碎,但是毕竟是自己的第一个整站项目,所以还是做些记录吧">
@@ -256,8 +256,16 @@ app.use(&apos;/api&apos;, apiRoutes);
             -webkit-transform: scaleY(0.5)
             transform: scaleY(0.5)
 </code></pre><p>通过媒体查询dpr来对元素进行缩放,从而形成视觉统一.</p>
-<h3 id="引入第三方css-js"><a href="#引入第三方css-js" class="headerlink" title="引入第三方css/js"></a>引入第三方css/js</h3><p>webpack里设置css解析,组件中import</p>
-
+<h3 id="引入第三方css-js"><a href="#引入第三方css-js" class="headerlink" title="引入第三方css/js"></a>引入第三方css/js</h3><p>webpack里设置css解析,组件中import<br>更优解:css放入static文件夹</p>
+<pre><code>&lt;style scoped&gt;
+  @import &apos;../../static/main.css&apos;;
+  &lt;/style&gt;
+</code></pre><h3 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h3><p>别忘了在index.html里写 <router-view></router-view></p>
+<pre><code>new Vue({
+      router, // router这个名字不能改
+      store
+}).$mount(&apos;#app&apos;)
+</code></pre>
       
 
       
@@ -398,7 +406,7 @@ app.use(&apos;/api&apos;, apiRoutes);
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Dawn inShadow
+    		&copy; 2018 Dawn inShadow
     	</div>
       	<div class="footer-right">
       		<a href="http://112.74.194.191/" target="_blank"> El psy congroo</a>
@@ -481,6 +489,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
@@ -489,11 +501,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
