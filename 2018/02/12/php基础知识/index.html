@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://tokdawn.github.io/2018/02/12/php基础知识/index.html">
 <meta property="og:site_name" content="境界的彼方">
 <meta property="og:description" content="php入门开始">
-<meta property="og:updated_time" content="2018-02-12T14:13:22.000Z">
+<meta property="og:updated_time" content="2018-02-13T10:50:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php基础知识">
 <meta name="twitter:description" content="php入门开始">
@@ -228,9 +228,56 @@
 <h2 id="Composer–PHP库管理器"><a href="#Composer–PHP库管理器" class="headerlink" title="Composer–PHP库管理器"></a>Composer–PHP库管理器</h2><h3 id="Composer安装"><a href="#Composer安装" class="headerlink" title="Composer安装:"></a>Composer安装:</h3><pre><code>curl -sS https://getcomposer.org/installer | php
 </code></pre><h3 id="Laravel安装"><a href="#Laravel安装" class="headerlink" title="Laravel安装:"></a>Laravel安装:</h3><pre><code>composer create-project --prefer-dist laravel/laravel blog
 </code></pre><h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目:"></a>启动项目:</h3><pre><code>php -S localhost:81 -t ./blog/public/
-</code></pre><h2 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h2><p>####routes—路由文件夹<br>    Route::get(‘/‘,function() {});<br>    Route::post(‘/‘,function() {});<br>    Route::any(‘/‘,WelcomeController@index); //Controller文件夹下文件的index方法</p>
-<h3 id="命令创建controller"><a href="#命令创建controller" class="headerlink" title="命令创建controller"></a>命令创建controller</h3><pre><code>php artisan make:controller textController
+</code></pre><h2 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h2><h3 id="目标结构"><a href="#目标结构" class="headerlink" title="目标结构"></a>目标结构</h3><blockquote>
+<p>.env 环境配置文件</p>
+</blockquote>
+<pre><code>APP_NAME=Laravel 程序名
+APP_ENV=local        程序环境
+APP_KEY=base64:9k0iUZZTmwf9LnlOl3ljNwlM/PvLAumH6i+qvLZ5HHc= 程序密钥
+APP_DEBUG=true    是否在开发模式
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1 服务器地址
+DB_PORT=3306    服务器端口
+DB_DATABASE=homestead    
+DB_USERNAME=homestead
+DB_PASSWORD=secret    
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file    缓存方式    
+SESSION_DRIVER=file 
+SESSION_LIFETIME=120
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=m t1
+
+MIX_PUSHER_APP_KEY=&quot;${PUSHER_APP_KEY}&quot;
+MIX_PUSHER_APP_CLUSTER=&quot;${PUSHER_APP_CLUSTER}&quot;
+</code></pre><h4 id="routes—路由文件夹"><a href="#routes—路由文件夹" class="headerlink" title="routes—路由文件夹"></a>routes—路由文件夹</h4><pre><code>Route::get(&apos;/&apos;,function() {});
+Route::post(&apos;/&apos;,function() {});
+Route::any(&apos;/&apos;,WelcomeController@index); //Controller文件夹下文件的index方法
+</code></pre><h3 id="命令创建controller"><a href="#命令创建controller" class="headerlink" title="命令创建controller"></a>命令创建controller</h3><pre><code>php artisan make:controller textController
 </code></pre><h3 id="全部路由表"><a href="#全部路由表" class="headerlink" title="全部路由表"></a>全部路由表</h3><pre><code>php artisan route:list
+</code></pre><h3 id="服务器上下线"><a href="#服务器上下线" class="headerlink" title="服务器上下线"></a>服务器上下线</h3><pre><code>php artisan down/up
+</code></pre><h2 id="blade–模板引擎"><a href="#blade–模板引擎" class="headerlink" title="blade–模板引擎"></a>blade–模板引擎</h2><h3 id="组件调用"><a href="#组件调用" class="headerlink" title="组件调用"></a>组件调用</h3><pre><code>组件存储在view下components文件夹下
+在view内通过@include(&apos;components.***&apos;)形式引用组件 
 </code></pre>
       
 
