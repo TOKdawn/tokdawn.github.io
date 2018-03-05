@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
-  <title>ES6 | 境界的彼方</title>
+  <title>Archives: 2018/3 | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先上文档地址:ES6入门">
-<meta name="keywords" content="JavaScript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ES6">
-<meta property="og:url" content="https://tokdawn.github.io/2017/10/19/ES6/index.html">
+  <meta name="description" content="Dawninshadow的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="境界的彼方">
+<meta property="og:url" content="https://tokdawn.github.io/archives/2018/03/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="先上文档地址:ES6入门">
-<meta property="og:updated_time" content="2018-03-04T07:32:29.000Z">
+<meta property="og:description" content="Dawninshadow的个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6">
-<meta name="twitter:description" content="先上文档地址:ES6入门">
+<meta name="twitter:title" content="境界的彼方">
+<meta name="twitter:description" content="Dawninshadow的个人博客">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -203,268 +201,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ES6" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      ES6
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/03/05/前端一锅炖/" class="archive-article-date">
+  	<time datetime="2018-03-05T08:46:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/03/05/前端一锅炖/">前端一锅炖</a>
     </h1>
   
 
-        
-        <a href="/2017/10/19/ES6/" class="archive-article-date">
-  	<time datetime="2017-10-19T04:34:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="先上文档地址-ES6入门"><a href="#先上文档地址-ES6入门" class="headerlink" title="先上文档地址:ES6入门"></a>先上文档地址:<a href="http://es6.ruanyifeng.com" target="_blank" rel="external">ES6入门</a></h3><a id="more"></a>
-<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>配置Babel,首先安装Babel,再建立项目文件夹,根目录下创建.babelre文件,基础配置:</p>
-<pre><code>{
-    &quot;presets&quot;: [
-        &quot;es2015&quot;,
-        &quot;react&quot;,
-        &quot;stage-2&quot;
-    ],
-    &quot;plugins&quot;: []
-}
-</code></pre><p>再用终端在文件夹下初始化npm,创建package.json:</p>
-<pre><code>npm init
-</code></pre><p>然后运行:</p>
-<pre><code>sudo  npm install babel-preset-env --save-dev
-</code></pre><p>babel配置完成,现在还需要手动转换,自动转换要设置监听</p>
-<p>转换命令:</p>
-<pre><code>babel ./ssa.js --out-dir ./dist
-</code></pre><p>可以写入package.json</p>
-<pre><code>{
-    &quot;name&quot;: &quot;es6_practice&quot;,
-    &quot;version&quot;: &quot;1.0.0&quot;,
-    &quot;description&quot;: &quot;&quot;,
-    &quot;main&quot;: &quot;index.js&quot;,
-    &quot;scripts&quot;: {
-        &quot;build&quot;: &quot;babel ./*.js --out-dir ./dist&quot;
-    },
-    &quot;author&quot;: &quot;dawn&quot;,
-    &quot;license&quot;: &quot;ISC&quot;,
-    &quot;devDependencies&quot;: {
-        &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;
-    }
-}
-</code></pre><p>之后运行即可完成转换</p>
-<pre><code>npm run build
-</code></pre><p>#ES6语法</p>
-<ul>
-<li>let:块级作用域!!!没有变量提升!!!不用多BB跟C语言一毛一样</li>
-<li>const:常量</li>
-</ul>
-<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><pre><code>let [foo = true] = [];
-foo // true
-
-let [x, y = &apos;b&apos;] = [&apos;a&apos;]; // x=&apos;a&apos;, y=&apos;b&apos;
-let [x, y = &apos;b&apos;] = [&apos;a&apos;, undefined]; // x=&apos;a&apos;, y=&apos;b&apos;
-</code></pre><h3 id="变量解构"><a href="#变量解构" class="headerlink" title="变量解构"></a>变量解构</h3><pre><code>function example() {
-  return [1, 2, 3];
-}
-let [a, b, c] = example();
-
-// 返回一个对象
-
-function example() {
-  return {
-    foo: 1,
-    bar: 2
-  };
-}
-let { foo, bar } = example();
-
-
-
-// 参数是一组有次序的值
-function f([x, y, z]) { ... }
-f([1, 2, 3]);
-
-// 参数是一组无次序的值
-function f({x, y, z}) { ... }
-f({z: 3, y: 2, x: 1});
-
-
-
-
-$(&apos;#result&apos;).append(`
-  There are &lt;b&gt;${basket.count}&lt;/b&gt; items
-   in your basket, &lt;em&gt;${basket.onSale}&lt;/em&gt;
-  are on sale!
-`);
-</code></pre><h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><pre><code>// ES5
- var selected = allJobs.filter(function (job) {
-   return job.isSelected();
- });
- // ES6
- var selected = allJobs.filter(job =&gt; job.isSelected());
-</code></pre><p>简化版的匿名函数<br>箭头前是参数列表,箭头后为返回值表达式.</p>
-<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>核心关键字: export import<br>export 用于在独立文件中向外部抛数据</p>
-<pre><code>// profile.js
-var firstName = &apos;Michael&apos;;
-var lastName = &apos;Jackson&apos;;
-var year = 1958;
-
-export {firstName, lastName, year};
-</code></pre><p>无法通过export直接向外部抛一个数值,应对向外抛接口</p>
-<pre><code>// 报错
-export 1;
-
-// 报错
-var m = 1;
-export m;
-// 正确写法一
-export var m = 1;
-
-// 正确写法二
-var m = 1;
-export {m};
-
-// 正确写法三
-var n = 1;
-export {n as m};
-</code></pre><p>##函数</p>
-<p>###函数的默认参数<br>    function makeRequest(url, timeout = 2000, callback = function(){}){<br>    // url必须传入<br>    }</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>这怎么好意思呢QvQ<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2017/10/19/ES6/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/04/大巧不工/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          大巧不工
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/18/webpack/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webpack</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -488,8 +278,8 @@ export {n as m};
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
