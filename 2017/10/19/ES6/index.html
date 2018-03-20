@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://tokdawn.github.io/2017/10/19/ES6/index.html">
 <meta property="og:site_name" content="境界的彼方">
 <meta property="og:description" content="先上文档地址:ES6入门">
-<meta property="og:updated_time" content="2018-03-04T07:32:29.000Z">
+<meta property="og:updated_time" content="2018-03-11T06:16:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
 <meta name="twitter:description" content="先上文档地址:ES6入门">
@@ -331,9 +331,26 @@ export {m};
 // 正确写法三
 var n = 1;
 export {n as m};
-</code></pre><p>##函数</p>
-<p>###函数的默认参数<br>    function makeRequest(url, timeout = 2000, callback = function(){}){<br>    // url必须传入<br>    }</p>
+</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数的默认参数"><a href="#函数的默认参数" class="headerlink" title="函数的默认参数"></a>函数的默认参数</h3><pre><code>function makeRequest(url, timeout = 2000, callback = function(){}){
+// url必须传入
+}
+</code></pre><h3 id="非原始值传参"><a href="#非原始值传参" class="headerlink" title="非原始值传参"></a>非原始值传参</h3><pre><code>function getVaule(){
+    return 5;
+}
+function add(first,second = getVaule()){
+    return first+second;
+}
+add(1,1)  ==&gt;2
+add(1) ===&gt;6
+如果不传入第二个参数就调用getVaule()
+</code></pre><h3 id="不定参数"><a href="#不定参数" class="headerlink" title="不定参数"></a>不定参数</h3><pre><code>fuction pick(object, ...keys){
+    let result = Object.create(null);
+    for (let i=0,len = key.length; i&lt; len;i++){
+        result[keys[i]] = object[keys[i]];
+    }
 
+}
+</code></pre>
       
 
       
@@ -573,6 +590,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Typecho</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
@@ -582,10 +607,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
             
             <div class="clearfix"></div>

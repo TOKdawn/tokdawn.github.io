@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://tokdawn.github.io">
-  <title>Archives: 2018/2 | 境界的彼方</title>
+  <title>Typecho建站日记 | 境界的彼方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dawninshadow的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="境界的彼方">
-<meta property="og:url" content="https://tokdawn.github.io/archives/2018/02/index.html">
+  <meta name="description" content="苍天已死,黄天当立,博客转移就在今日!!!">
+<meta name="keywords" content="Typecho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typecho建站日记">
+<meta property="og:url" content="https://tokdawn.github.io/2018/03/19/Typecho建站日记/index.html">
 <meta property="og:site_name" content="境界的彼方">
-<meta property="og:description" content="Dawninshadow的个人博客">
+<meta property="og:description" content="苍天已死,黄天当立,博客转移就在今日!!!">
+<meta property="og:updated_time" content="2018-03-19T05:50:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="境界的彼方">
-<meta name="twitter:description" content="Dawninshadow的个人博客">
+<meta name="twitter:title" content="Typecho建站日记">
+<meta name="twitter:description" content="苍天已死,黄天当立,博客转移就在今日!!!">
   
     <link rel="alternative" href="/atom.xml" title="境界的彼方" type="application/atom+xml">
   
@@ -201,60 +203,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Typecho建站日记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/12/php基础知识/" class="archive-article-date">
-  	<time datetime="2018-02-12T04:20:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/12/php基础知识/">php基础知识</a>
+    <h1 class="article-title" itemprop="name">
+      Typecho建站日记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/19/Typecho建站日记/" class="archive-article-date">
+  	<time datetime="2018-03-19T05:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>苍天已死,黄天当立,博客转移就在今日!!!<br><a id="more"></a></p>
+<p>基础环境 腾讯云 1核 1M 2GB 版本服务器</p>
+<p>CentOS 7.0+Nginx 1.8+PHP ^5.2+MySQL 5.6</p>
+<h2 id="CentOS配置"><a href="#CentOS配置" class="headerlink" title="CentOS配置"></a>CentOS配置</h2><p>配源:</p>
+<pre><code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+ yum clean all   //清除缓存
+
+yum makecache        //把Yum源缓存到本地，加快软件的搜索好安装速度
+yum list        //总共列出了9954个包
+</code></pre><p>PHP安装</p>
+<pre><code>cd /user/local 
+wget -O php7.tar.gz http://cn2.php.net/get/php-7.1.1.tar.gz/from/this/mirror //下载安装包
+tar -xvf php7.tar.gz //解压
+cd php-7.1.11 //进入文件夹
+
+yum install libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel //安装依赖
+make &amp;&amp; make install //安装php
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这怎么好意思呢QvQ<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Typecho</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://tokdawn.github.io/2018/03/19/Typecho建站日记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/08/好高兴哦-又装环境了/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">好高兴哦,又装环境了</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -278,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
